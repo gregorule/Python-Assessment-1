@@ -35,7 +35,14 @@
 	# What was the name of the function we have seen to check the length of a container?  Use your CLI to access the Python documentation and get help(len).
 
 def one(input1, input2):
-	return ""
+	if len(input1) > len(input2):
+		return input1
+	elif len(input1) < len(input2):
+		return input2
+	elif len(input1) == len(input2):
+		return f"{input1} {input2}"
+
+print(one("three", "hello"))
 	
 
 
@@ -65,8 +72,10 @@ def one(input1, input2):
 	# Use your CLI to access the Python documentation and get help manipulating strings - help(str).
 
 def two(input):
-	return ""
+	x = input.lower().split("bert", 2)[1]
+	return x
 
+print(two("bertclivebert"))
 
 
 
@@ -90,7 +99,16 @@ def two(input):
 	# No Hints for this question
 
 def three(arg1):
-	return ""
+	if arg1 % 3 == 0 and arg1 % 5 == 0:
+		return "fizzbuzz"
+	elif arg1 % 5 == 0:
+		return "buzz"
+	elif arg1 % 3 == 0:
+		return "fizz"
+	else:
+		return "null"
+
+print(three(8))
 
 
 	# <QUESTION 4>
@@ -116,7 +134,10 @@ def three(arg1):
 	# help(int) for working with numbers and help(str) for working with Strings.
 
 def four(arg1):
-	return ""
+	x = arg1.split(" ", 5)
+	return x
+
+print(four("555 72 86 45 10"))
 
 	# <QUESTION 5>
 
@@ -165,7 +186,18 @@ def five(input):
 
 
 def six(input):
-	return ""
+	if input.find("ei") == -1 and input.find("ie") == -1: 
+		return True
+	for x in re.finditer("ei", input):
+		if x.start() == 0 or input[x.start() - 1] != "c": 
+			return False
+	for x in re.finditer("ie", input):
+        if x.start() == 0 or input[x.start() - 1] == "c":
+			return False
+    return True
+
+
+print(six("glacier"))
 	
 	
 		
@@ -187,7 +219,14 @@ def six(input):
 #    return ch.upper() in ['A', 'E', 'I', 'O', 'U'] 
 
 def seven(input): 
-	pass
+	number_of_vowels = 0
+	the_vowels = ["a", "e", "i", "o", "u"]
+	for letter in input.lower():
+		if letter in the_vowels:
+			number_of_vowels += 1
+	return number_of_vowels
+
+print(seven("hEelLoooO"))
    
 
 	# <QUESTION 8>
