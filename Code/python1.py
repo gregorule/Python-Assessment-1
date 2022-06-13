@@ -35,7 +35,13 @@
 	# What was the name of the function we have seen to check the length of a container?  Use your CLI to access the Python documentation and get help(len).
 
 def one(input1, input2):
-	return ""
+	if len(input1) > len(input2):
+		return input1
+	elif len(input1) < len(input2):
+		return input2
+	elif len(input1) == len(input2):
+		return f"{input1} {input2}"
+
 	
 
 
@@ -65,7 +71,8 @@ def one(input1, input2):
 	# Use your CLI to access the Python documentation and get help manipulating strings - help(str).
 
 def two(input):
-	return ""
+	x = input.lower().split("bert", 2)[1]
+	return x
 
 
 
@@ -90,7 +97,15 @@ def two(input):
 	# No Hints for this question
 
 def three(arg1):
-	return ""
+	if arg1 % 3 == 0 and arg1 % 5 == 0:
+		return "fizzbuzz"
+	elif arg1 % 5 == 0:
+		return "buzz"
+	elif arg1 % 3 == 0:
+		return "fizz"
+	else:
+		return "null"
+
 
 
 	# <QUESTION 4>
@@ -116,7 +131,9 @@ def three(arg1):
 	# help(int) for working with numbers and help(str) for working with Strings.
 
 def four(arg1):
-	return ""
+	x = arg1.split(" ", 5)
+	return x
+
 
 	# <QUESTION 5>
 
@@ -165,7 +182,24 @@ def five(input):
 
 
 def six(input):
-	return ""
+	mnemonic = False
+	if "cie" in input:
+		return mnemonic
+	elif "cei" in input:
+		mnemonic = True
+		return mnemonic
+	elif "ei" in input:
+		return mnemonic
+	elif "ie" in input:
+		mnemonic = True
+		return mnemonic
+	else:
+		mnemonic = True
+		return mnemonic
+    
+
+
+
 	
 	
 		
@@ -187,7 +221,13 @@ def six(input):
 #    return ch.upper() in ['A', 'E', 'I', 'O', 'U'] 
 
 def seven(input): 
-	pass
+	number_of_vowels = 0
+	the_vowels = ["a", "e", "i", "o", "u"]
+	for letter in input.lower():
+		if letter in the_vowels:
+			number_of_vowels += 1
+	return number_of_vowels
+
    
 
 	# <QUESTION 8>
@@ -204,11 +244,15 @@ def seven(input):
 	# <HINT>
 
 	# You may need to create a list of numbers from 0 to i, take a look at help(range).
-
+'''
 def eight(input):
-	return ""
+	d = []
+	for i in range(1, input + 1):
+		d.append(input) = i * i
+	return d
 	
-
+print(eight(4))
+'''
 	# <QUESTION 9>
 
     # Given a string and a char, returns the position in the String where the char first appears.
@@ -228,7 +272,10 @@ def eight(input):
 	# Take a look at the documentation for Strings, List and range.
 
 def nine(inputString, char):
-	return ""
+	index = inputString.strip(char).find(char)
+	return index
+
+
 
 
 	# <QUESTION 10>
@@ -249,4 +296,13 @@ def nine(inputString, char):
 	# How do we find the length of a container, take a look at help(len), you will also need to look at help(str) for String manipulation.
  
 def ten(string, int, char): 
-	return ""
+	nth = False
+	if len(string) < int:
+		return nth
+	if string[int - 1] == char:
+		nth = True
+		return nth
+	elif string[int - 1] != char:
+		return nth
+
+
