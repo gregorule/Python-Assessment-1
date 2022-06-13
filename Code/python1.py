@@ -71,11 +71,26 @@ def one(input1, input2):
 	# Use your CLI to access the Python documentation and get help manipulating strings - help(str).
 
 def two(input):
+	'''
 	x = input.lower().split("bert", 2)[1]
 	return x
-
-
-
+	'''
+	n = 0
+	lower_input = input.lower()
+	start_of_berts = []
+	while n < len(input):
+		if lower_input[n] == "b":
+			if lower_input[n:n+4] == "bert":
+				start_of_berts.append(n)
+				n += 4
+				continue
+		n += 1
+	if len(start_of_berts) < 2:
+		return ""
+	else:
+		output = input[start_of_berts[0] + 4: start_of_berts[-1]]
+		return output
+ 	
 
 	# <QUESTION 3>
 
@@ -131,8 +146,16 @@ def three(arg1):
 	# help(int) for working with numbers and help(str) for working with Strings.
 
 def four(arg1):
-	x = arg1.split(" ", 5)
-	return x
+	num_list = arg1.split()
+	largest = 0
+	for x in num_list:
+		size = 0
+		strNum = str(x)
+		for y in range(len(strNum)):
+			size += int(strNum[y])
+			if size > largest:
+				largest = size
+	return largest 
 
 
 	# <QUESTION 5>
@@ -161,8 +184,14 @@ def four(arg1):
 	# help(str) and help(list), you might also need to use a function that can create a list of numbers for you, try help(range).
 
 def five(input):
-	return ""
-
+	list_of_files = input.split(",")
+	length = len(list_of_files)
+	unsafe = []
+	for encrypt in range(2, length, 4):
+		if list_of_files[encrypt] == "False" and list_of_files[(encrypt - 2)] not in unsafe:
+			unsafe.append(list_of_files[(encrypt - 2)])
+	return unsafe
+	
 	# <QUESTION 6>
 
     # There is a well known mnemonic which goes "I before E, except after C", which is used to determine which order "ei" or "ie" should be in a word.
@@ -198,10 +227,6 @@ def six(input):
 		return mnemonic
     
 
-
-
-	
-	
 		
 
 	# <QUESTION 7>
@@ -272,8 +297,17 @@ print(eight(4))
 	# Take a look at the documentation for Strings, List and range.
 
 def nine(inputString, char):
+	'''
 	index = inputString.strip(char).find(char)
 	return index
+	'''
+	split_input = inputString.split()
+	join_input = "".join(split_input)
+	word_length = len(join_input)
+	for letter in range(word_length):
+		if join_input[letter] == char:
+			return letter + 1
+	return -1
 
 
 
@@ -296,6 +330,7 @@ def nine(inputString, char):
 	# How do we find the length of a container, take a look at help(len), you will also need to look at help(str) for String manipulation.
  
 def ten(string, int, char): 
+	'''
 	nth = False
 	if len(string) < int:
 		return nth
@@ -304,5 +339,13 @@ def ten(string, int, char):
 		return nth
 	elif string[int - 1] != char:
 		return nth
-
+	'''
+	str_lcase = string.lower()
+	word_length = len(str_lcase)
+	if int <= word_length:
+		if str_lcase[int -1] == char:
+			return True
+		else:
+			return False
+	return False
 
