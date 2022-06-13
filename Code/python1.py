@@ -42,7 +42,6 @@ def one(input1, input2):
 	elif len(input1) == len(input2):
 		return f"{input1} {input2}"
 
-print(one("three", "hello"))
 	
 
 
@@ -75,7 +74,6 @@ def two(input):
 	x = input.lower().split("bert", 2)[1]
 	return x
 
-print(two("bertclivebert"))
 
 
 
@@ -108,7 +106,6 @@ def three(arg1):
 	else:
 		return "null"
 
-print(three(8))
 
 
 	# <QUESTION 4>
@@ -137,7 +134,6 @@ def four(arg1):
 	x = arg1.split(" ", 5)
 	return x
 
-print(four("555 72 86 45 10"))
 
 	# <QUESTION 5>
 
@@ -186,18 +182,24 @@ def five(input):
 
 
 def six(input):
-	if input.find("ei") == -1 and input.find("ie") == -1: 
-		return True
-	for x in re.finditer("ei", input):
-		if x.start() == 0 or input[x.start() - 1] != "c": 
-			return False
-	for x in re.finditer("ie", input):
-        if x.start() == 0 or input[x.start() - 1] == "c":
-			return False
-    return True
+	mnemonic = False
+	if "cie" in input:
+		return mnemonic
+	elif "cei" in input:
+		mnemonic = True
+		return mnemonic
+	elif "ei" in input:
+		return mnemonic
+	elif "ie" in input:
+		mnemonic = True
+		return mnemonic
+	else:
+		mnemonic = True
+		return mnemonic
+    
 
 
-print(six("glacier"))
+
 	
 	
 		
@@ -226,7 +228,6 @@ def seven(input):
 			number_of_vowels += 1
 	return number_of_vowels
 
-print(seven("hEelLoooO"))
    
 
 	# <QUESTION 8>
@@ -243,11 +244,15 @@ print(seven("hEelLoooO"))
 	# <HINT>
 
 	# You may need to create a list of numbers from 0 to i, take a look at help(range).
-
+'''
 def eight(input):
-	return ""
+	d = []
+	for i in range(1, input + 1):
+		d.append(input) = i * i
+	return d
 	
-
+print(eight(4))
+'''
 	# <QUESTION 9>
 
     # Given a string and a char, returns the position in the String where the char first appears.
@@ -267,7 +272,10 @@ def eight(input):
 	# Take a look at the documentation for Strings, List and range.
 
 def nine(inputString, char):
-	return ""
+	index = inputString.strip(char).find(char)
+	return index
+
+
 
 
 	# <QUESTION 10>
@@ -288,4 +296,13 @@ def nine(inputString, char):
 	# How do we find the length of a container, take a look at help(len), you will also need to look at help(str) for String manipulation.
  
 def ten(string, int, char): 
-	return ""
+	nth = False
+	if len(string) < int:
+		return nth
+	if string[int - 1] == char:
+		nth = True
+		return nth
+	elif string[int - 1] != char:
+		return nth
+
+
